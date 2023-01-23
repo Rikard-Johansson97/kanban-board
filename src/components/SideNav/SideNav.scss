@@ -1,5 +1,38 @@
 .sidenav {
   padding: 10px 0px;
   background-color: var(--bg-gray);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100vw;
+  width: 100%;
+  max-width: 280px;
+
+  p {
+    padding: 15px 30px;
+    color: var(--text-gray);
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      padding: 15px 30px;
+
+      border-radius: 0 15px 15px 0;
+      width: 85%;
+      color: var(--primary-dimmed);
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      color: var(--text-gray);
+
+      &.active,
+      &:hover {
+        background-color: var(--text-dimmed);
+        transition: all 0.3s ease-in-out;
+        color: var(--primary-dimmed);
+      }
+    }
+  }
 }
