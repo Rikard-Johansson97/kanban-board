@@ -11,7 +11,7 @@ interface Props {
 const SideNav = () => {
   const { projects, currentProject, changeBoard }: any = useProject();
 
-  console.log(projects);
+  console.log(currentProject);
 
   return (
     <div className='sidenav'>

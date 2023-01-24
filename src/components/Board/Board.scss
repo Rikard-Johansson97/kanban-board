@@ -21,6 +21,16 @@
       height: 15px;
       border-radius: 50%;
       background-color: green;
+
+      &.Todo {
+        background-color: #49c4e5;
+      }
+      &.Doing {
+        background-color: #8471f2;
+      }
+      &.Done {
+        background-color: #67e2ae;
+      }
     }
   }
 }
