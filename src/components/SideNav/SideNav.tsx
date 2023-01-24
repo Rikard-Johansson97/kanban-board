@@ -9,18 +9,22 @@ interface Props {
 }
 
 const SideNav = () => {
-  const { projects }: any = useProject();
+  const { projects, currentProject, changeBoard }: any = useProject();
 
-  console.log(JSON.stringify(projects));
+  console.log(projects);
 
   return (
     <div className='sidenav'>
-      <p>ALL BOARDS (2)</p>
-
+      <p>ALL BOARDS ({projects.length})</p>
       <ul>
-        {projects.map((project: Project) => {
-          <li>{project.title}</li>;
-        })}
+        {projects.map((project: Project, i: number) => (
+          <li
+            key={project.id}
+            onClick={() => changeBoard(i)}
+            className={currentProject.id === project.id ? "active" : undefined}>
+            {project.title}
+          </li>
+        ))}
       </ul>
     </div>
   );

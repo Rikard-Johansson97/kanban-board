@@ -13,8 +13,6 @@ interface TicketProps {
 const Ticket = ({ item }: TicketProps) => {
   const [showLists, setShowLists] = useState(false);
 
-  console.log(item);
-
   return (
     <div
       className='ticket'
