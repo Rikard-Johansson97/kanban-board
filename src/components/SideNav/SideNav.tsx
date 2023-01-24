@@ -9,9 +9,10 @@ interface Props {
 }
 
 const SideNav = () => {
-  const { projects, currentProject, changeBoard }: any = useProject();
+  const { projects, currentProject, changeBoard, addNewProject }: any =
+    useProject();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(currentProject);
+  const [text, setText] = useState("");
 
   return (
     <div className='sidenav'>
@@ -33,8 +34,8 @@ const SideNav = () => {
       </ul>
       {isOpen && (
         <div className='create-project'>
-          <input type='text'></input>
-          <button>Create Project</button>
+          <input type='text' onChange={(e) => setText(e.target.value)}></input>
+          <button onClick={() => addNewProject(text)}>Create Project</button>
         </div>
       )}
     </div>
