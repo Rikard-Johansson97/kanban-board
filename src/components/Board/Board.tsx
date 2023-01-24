@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Board.scss";
 import Ticket from "../Ticket/Ticket";
+import { useProject } from "../../context/projectContext";
 
 const Board = () => {
   return (
