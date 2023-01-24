@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useProject } from "../../context/projectContext";
 import "./SideNav.scss";
 
@@ -10,7 +10,7 @@ interface Props {
 
 const SideNav = () => {
   const { projects, currentProject, changeBoard }: any = useProject();
-
+  const [isOpen, setIsOpen] = useState(false);
   console.log(currentProject);
 
   return (
@@ -25,7 +25,18 @@ const SideNav = () => {
             {project.title}
           </li>
         ))}
+        <li
+          className='create-board'
+          onClick={() => setIsOpen((currentValue) => !currentValue)}>
+          Create new board
+        </li>
       </ul>
+      {isOpen && (
+        <div className='create-project'>
+          <input type='text'></input>
+          <button>Create Project</button>
+        </div>
+      )}
     </div>
   );
 };
