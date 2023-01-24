@@ -25,7 +25,13 @@ body {
 }
 
 .App {
-  display: flex;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+
+  main {
+    display: flex;
+  }
 }
 
 .heading-xl {

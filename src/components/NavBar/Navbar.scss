@@ -18,13 +18,15 @@
   }
 
   button {
-    padding: 15px 20px;
+    padding: 8px 15px;
     border-radius: 999px;
     background-color: var(--primary-dimmed);
     color: var(--text);
     cursor: pointer;
 
     &:hover {
+      transition: all 0.2s ease-in-out;
+      filter: brightness(1.1);
     }
   }
 }

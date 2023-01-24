@@ -16,10 +16,36 @@ const ProjectProvider = ({ children }: { children: React.ReactNode }) => {
     setCurrentIndex(index);
   };
 
+  function addNewProject(title: any) {
+    if (!title) return;
+
+    const newProject = {
+      title: title,
+      id: projects.length + 1,
+      board: [
+        {
+          name: "Todo",
+          ticket: [],
+        },
+        {
+          name: "Doing",
+          ticket: [],
+        },
+        {
+          name: "Done",
+          ticket: [],
+        },
+      ],
+    };
+
+    setProjects([...projectsData]);
+  }
+
   const value = {
     changeBoard: changeBoard,
     currentProject: currentProject,
     projects: projects,
+    addNewProject: addNewProject,
   };
 
   return (
