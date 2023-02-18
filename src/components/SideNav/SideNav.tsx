@@ -1,43 +1,16 @@
-import React, { useState } from "react";
-import { useProject } from "../../context/projectContext";
+import React, { FC } from "react";
 import "./SideNav.scss";
+import { useProject } from "../../context/projectContext";
+import Links from "../Links/Links";
 
-import { Ticket, Board, Project } from "../../types/types";
+interface SideNavProps {}
 
-interface Props {
-  Projects: Project;
-}
-
-const SideNav = () => {
-  const { projects, currentProject, changeBoard, addNewProject }: any =
-    useProject();
-  const [isOpen, setIsOpen] = useState(false);
-  const [text, setText] = useState("");
-
+const SideNav: FC<SideNavProps> = ({}) => {
+  const { projects } = useProject();
   return (
     <div className='sidenav'>
-      <p>ALL BOARDS ({projects.length})</p>
-      <ul>
-        {projects.map((project: Project, i: number) => (
-          <li
-            key={project.id}
-            onClick={() => changeBoard(i)}
-            className={currentProject.id === project.id ? "active" : undefined}>
-            {project.title}
-          </li>
-        ))}
-        <li
-          className='create-board'
-          onClick={() => setIsOpen((currentValue) => !currentValue)}>
-          Create new board
-        </li>
-      </ul>
-      {isOpen && (
-        <div className='create-project'>
-          <input type='text' onChange={(e) => setText(e.target.value)}></input>
-          <button onClick={() => addNewProject(text)}>Create Project</button>
-        </div>
-      )}
+      <p>ALL BOARDS ( {projects.length} )</p>
+      <Links />
     </div>
   );
 };

@@ -1,36 +1,44 @@
 .board {
-  padding: 24px;
-  display: grid;
-  gap: 50px;
   flex: 1;
+  padding: 24px 24px;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
 
-  &-column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+@media screen and (max-width: 800px) {
+  .board {
+    padding: 0;
+    margin: 20px;
+    grid-template-columns: 1fr;
   }
+}
 
-  &-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    &-icon {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: green;
-
-      &.Todo {
-        background-color: #49c4e5;
-      }
-      &.Doing {
-        background-color: #8471f2;
-      }
-      &.Done {
-        background-color: #67e2ae;
-      }
-    }
+.board-column {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 15px;
+}
+.board-title {
+  display: flex;
+  gap: 12px;
+  color: #7f90a4;
+  &-icon {
+    width: 15px;
+    height: 15px;
+    background-color: orange;
+    border-radius: 50%;
   }
+}
+
+.Todo {
+  background-color: #49c4e5;
+}
+.Doing {
+  background-color: #8471f2;
+}
+.Done {
+  background-color: #67e2ae;
 }
